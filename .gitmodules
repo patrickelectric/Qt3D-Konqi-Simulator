@@ -1,0 +1,3 @@
+[submodule "lib/bullet-physics-qml-plugin"]
+	path = lib/bullet-physics-qml-plugin
+	url = https://bitbucket.org/csaga77/bullet-physics-qml-plugin.git
