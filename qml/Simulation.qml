@@ -65,35 +65,35 @@ QQ2.Item {
         id: rayTestL
         world: root.world
         rayFrom: vehicle.origin
-        rayTo: vehicle.origin.plus(Qt.vector3d(sensorDist*Math.sin((vehicle.angle + 90)*Math.PI/180), 0, sensorDist*Math.cos((vehicle.angle + 90)*Math.PI/180)))
+        rayTo: vehicle.toWordPosition(Math.PI/2, sensorDist)
     }
 
     QB.RayTest {
         id: rayTestLF
         world: root.world
         rayFrom: vehicle.origin
-        rayTo: vehicle.origin.plus(Qt.vector3d(sensorDist*Math.sin((vehicle.angle + 45)*Math.PI/180), 0, sensorDist*Math.cos((vehicle.angle + 45)*Math.PI/180)))
+        rayTo: vehicle.toWordPosition(Math.PI/4, sensorDist)
     }
 
     QB.RayTest {
         id: rayTestF
         world: root.world
         rayFrom: vehicle.origin
-        rayTo: vehicle.origin.plus(Qt.vector3d(sensorDist*Math.sin((vehicle.angle)*Math.PI/180), 0, sensorDist*Math.cos((vehicle.angle)*Math.PI/180)))
+        rayTo: vehicle.toWordPosition(0, sensorDist)
     }
 
     QB.RayTest {
         id: rayTestRF
         world: root.world
         rayFrom: vehicle.origin
-        rayTo: vehicle.origin.plus(Qt.vector3d(sensorDist*Math.sin((vehicle.angle - 45)*Math.PI/180), 0, sensorDist*Math.cos((vehicle.angle - 45)*Math.PI/180)))
+        rayTo: vehicle.toWordPosition(-Math.PI/4, sensorDist)
     }
 
     QB.RayTest {
         id: rayTestR
         world: root.world
         rayFrom: vehicle.origin
-        rayTo: vehicle.origin.plus(Qt.vector3d(sensorDist*Math.sin((vehicle.angle - 90)*Math.PI/180), 0, sensorDist*Math.cos((vehicle.angle - 90)*Math.PI/180)))
+        rayTo: vehicle.toWordPosition(-Math.PI/2, sensorDist)
     }
 
     QQ2.Timer {

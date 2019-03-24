@@ -61,6 +61,11 @@ Entity {
         body2steerWheel.angularServoTarget = Qt.vector3d(0, 0, 0);
     }
 
+    function toWordPosition(angle, distance) {
+        var finalAngle = vehicle.angle*Math.PI/180 + angle
+        return origin.plus(Qt.vector3d(distance*Math.sin(finalAngle), 0, distance*Math.cos(finalAngle)))
+    }
+
     property QB.DiscreteDynamicsWorld world: null
     property real suspensionHeight: -0.5
     property real wheelRollingFriction: 0.05
