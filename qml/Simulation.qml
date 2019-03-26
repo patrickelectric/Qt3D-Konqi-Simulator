@@ -61,6 +61,14 @@ QQ2.Item {
     property real linearSpeed: 0
     property real angularAngle: 0
 
+    function checkSensors() {
+        rayTestL.hitTest()
+        rayTestLF.hitTest()
+        rayTestF.hitTest()
+        rayTestRF.hitTest()
+        rayTestR.hitTest()
+    }
+
     QB.RayTest {
         id: rayTestL
         world: root.world
@@ -169,7 +177,7 @@ QQ2.Item {
         }
     }
 
-    property alias world: world1
+    property alias world: world
 
     Scene3D {
         id: scene3D
@@ -324,20 +332,16 @@ QQ2.Item {
 
             Car {
                 id: vehicle
-                world: world1
+                world: world
                 showDebug: root.showDebug
                 onOriginChanged: {
-                    rayTestL.hitTest()
-                    rayTestLF.hitTest()
-                    rayTestF.hitTest()
-                    rayTestRF.hitTest()
-                    rayTestR.hitTest()
+                    checkSensors()
                 }
             }
 
             QBTools.Heightmap {
                 id: heightmap
-                world: world1
+                world: world
                 heightmap: "qrc:/resources/heightmap.png"
                 scale: Qt.vector3d(0.1, 0.015, 0.1)
                 friction: 0.9
@@ -349,7 +353,7 @@ QQ2.Item {
             }
 
             QB.DiscreteDynamicsWorld {
-                id: world1
+                id: world
                 gravity: Qt.vector3d(0, -9.8, 0)
                 running: true
             }
